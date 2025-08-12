@@ -1,0 +1,24 @@
+#[filter_local]
+# Grok 核心服务：x.ai、grok.com 及其子域名，用于 API、认证、静态资源等
+host-suffix, x.ai, GrokAiPolicy
+host-suffix, grok.com, GrokAiPolicy
+host, auth.grokusercontent.com, GrokAiPolicy
+
+# Cloudflare 服务：用于 CDN 加速和安全验证
+host, static.cloudflareinsights.com, GrokAiPolicy
+host, challenges.cloudflare.com, GrokAiPolicy
+
+# Sentry 服务：用于错误监控和日志收集
+host-suffix, ingest.sentry.io, GrokAiPolicy
+host-suffix, ingest.us.sentry.io, GrokAiPolicy
+
+# Intercom 服务：用于客服功能和用户交互
+host-suffix, intercom.io, GrokAiPolicy
+host-suffix, mobile-messenger.intercom.com, GrokAiPolicy
+
+# 其他第三方服务：支持 Grok 的功能，如容器注册、数据分析、文本生成等
+host, prodregistryv2.org, GrokAiPolicy
+host, xai.chronosphere.io, GrokAiPolicy
+host, featureassets.org, GrokAiPolicy
+host, api.mixpanel.com, GrokAiPolicy
+host, text.pollinations.ai, GrokAiPolicy
