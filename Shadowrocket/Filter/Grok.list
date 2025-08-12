@@ -1,0 +1,23 @@
+# Grok 核心服务：x.ai、grok.com 及其子域名，用于 API、认证、静态资源等
+DOMAIN-SUFFIX,x.ai,GrokAiPolicy
+DOMAIN-SUFFIX,grok.com,GrokAiPolicy
+DOMAIN,auth.grokusercontent.com,GrokAiPolicy
+
+# Cloudflare 服务：用于 CDN 加速和安全验证
+DOMAIN,static.cloudflareinsights.com,GrokAiPolicy
+DOMAIN,challenges.cloudflare.com,GrokAiPolicy
+
+# Sentry 服务：用于错误监控和日志收集
+DOMAIN-SUFFIX,ingest.sentry.io,GrokAiPolicy
+DOMAIN-SUFFIX,ingest.us.sentry.io,GrokAiPolicy
+
+# Intercom 服务：用于客服功能和用户交互
+DOMAIN-SUFFIX,intercom.io,GrokAiPolicy
+DOMAIN-SUFFIX,mobile-messenger.intercom.com,GrokAiPolicy
+
+# 其他第三方服务：支持 Grok 的功能，如容器注册、数据分析、文本生成等
+DOMAIN,prodregistryv2.org,GrokAiPolicy
+DOMAIN,xai.chronosphere.io,GrokAiPolicy
+DOMAIN,featureassets.org,GrokAiPolicy
+DOMAIN,api.mixpanel.com,GrokAiPolicy
+DOMAIN,text.pollinations.ai,GrokAiPolicy
