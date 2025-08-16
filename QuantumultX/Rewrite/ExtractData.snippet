@@ -4,9 +4,9 @@ hostname = wx-camp-180-shuangjie-api.mscampapi.digitalyili.com ,msmarket.msx.dig
 
 
 #T3出行App提取token
-^https:\/\/passenger\.t3go\.cn\/member\-app\-api url script-request-header T3GoExtractToken.js
-^https:\/\/passenger\.t3go\.cn\/passenger\-activity\-api url script-request-header T3GoExtractToken.js
-^https:\/\/passenger\.t3go\.cn\/mall\-app\-api url script-request-header T3GoExtractToken.js
+^https:\/\/passenger\.t3go\.cn\/member\-app\-api url script-request-header https://raw.githubusercontent.com/EpochME/NetworkTool/refs/heads/main/QuantumultX/Script/T3GoExtractToken.js
+^https:\/\/passenger\.t3go\.cn\/passenger\-activity\-api url script-request-header https://raw.githubusercontent.com/EpochME/NetworkTool/refs/heads/main/QuantumultX/Script/T3GoExtractToken.js
+^https:\/\/passenger\.t3go\.cn\/mall\-app\-api url script-request-header https://raw.githubusercontent.com/EpochME/NetworkTool/refs/heads/main/QuantumultX/Script/T3GoExtractToken.js
 #活力伊利 小程序
 #openid
 ^https:\/\/msmarket\.msx\.digitalyili\.com\/gateway\/api\/auth\/account url script-request-body HuoLiYiLiAppletExtractOpenId.js
