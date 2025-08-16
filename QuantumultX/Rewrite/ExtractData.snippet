@@ -1,0 +1,125 @@
+#获取Cookie成功后，取消本条重写的勾选（把✅变为☑️），从而避免产生不必要的mitm消耗手机性能。
+
+hostname = wx-camp-180-shuangjie-api.mscampapi.digitalyili.com ,msmarket.msx.digitalyili.com ,gw-app.beantechyun.com, api.yonghuivip.com, m.client.10010.com, res.woread.com.cn, 10010.woread.com.cn, next.gacmotor.com, *.amap.com, ttdprod-mp.4008618618.com, app.fjxzj.com, xapi.weimob.com, www.deppon.com, eapp.eastobacco.com, group.yun.139.com, aas.caiyun.feixin.10086.cn, mxsa.mxbc.net, webapi2.qmai.cn, mcs-mimp-web.sf-express.com, api.m.jd.com, cps.hisense.com, sweixin.hisense.com, passenger.t3go.cn
+
+
+#T3出行App提取token
+^https:\/\/passenger\.t3go\.cn\/member\-app\-api url script-request-header T3GoExtractToken.js
+^https:\/\/passenger\.t3go\.cn\/passenger\-activity\-api url script-request-header T3GoExtractToken.js
+^https:\/\/passenger\.t3go\.cn\/mall\-app\-api url script-request-header T3GoExtractToken.js
+#活力伊利 小程序
+#openid
+^https:\/\/msmarket\.msx\.digitalyili\.com\/gateway\/api\/auth\/account url script-request-body HuoLiYiLiAppletExtractOpenId.js
+#点击中秋活动 获取请求头token
+^https:\/\/wx\-camp\-180\-shuangjie\-api\.mscampapi\.digitalyili\.com\/fragment\/ticket\/ticket\-info url script-request-header HuoLiYiLiAppletExtractToken.js
+#点击 我的 获取请求头 access_token
+^https:\/\/msmarket\.msx\.digitalyili\.com\/gateway\/api\/member\/(level|sign|point) url script-request-header HuoLiYiLiAppletExtractAccessToken.js
+
+
+
+
+#酷瓜Applet提取Cookie
+//hostname = www.kugua.com
+#^https:\/\/www\.kugua\.com\/wxapp\/openidLogin url script-response-body KuGuaAppletExtractCookie.js
+
+
+#坦克App获取accessToken
+//^https:\/\/gw\-app\.beantechyun\.com\/app\-api\/api\/v1\.0\/userAuth\/route\/getUserInfo url script-request-header TankAppExtractToken.js
+
+
+#PushPlus
+//hostname = www.pushplus.plus
+#^http:\/\/www\.pushplus\.plus\/api\/customer\/user\/myInfo\?$ url script-response-body RewriteResponse.js
+
+#^http:\/\/www\.pushplus\.plus\/api\/customer\/user\/userInfo$ url script-response-body RewriteResponse.js
+
+#永辉生活App
+//hostname = api.yonghuivip.com
+//^https:\/\/api\.yonghuivip\.com\/api\/fp\/commonconfig url script-request-header YongHuiLifeAppExtractCookie.js
+
+##联通App 获取token_online
+^https:\/\/m\.client\.10010\.com\/mobileService\/login_vcode_member url script-request-body ChinaUnicomExtractTokenOnline.js
+#联通App 月光宝盒阅读页面 获取Cookie
+//hostname = res.woread.com.cn
+^http:\/\/res\.woread\.com\.cn\/active\/readGiftBoxActive url script-response-body ChinaUnicomWoReadExtractCookie.js
+#联通App月光宝盒 改库存
+//hostname = 10010.woread.com.cn
+^https:\/\/10010\.woread\.com\.cn\/ng_woread_service\/rest\/activity423\/queryActiveTaskList$ url script-response-body MoonBox.js
+#联通App月光宝盒 改库存后获取请求体
+^https:\/\/10010\.woread\.com\.cn\/ng_woread_service\/rest\/activity423\/receiveActiveTask$ url script-request-body MoonBoxExtractRequestBody.js
+
+
+#广汽传祺App 验证码登录过程中获取 Token
+//hostname = next.gacmotor.com
+//^https:\/\/next\.gacmotor\.com\/app\/app\-api\/login\/loginBySms$ url script-response-body GacmotorExtractToken.js
+
+#高德打车Applet
+//hostname = *.amap.com
+//^https:\/\/(m5(|-zb)|dache)\.amap\.com\/(ws\/yuece\/(act|openapi\/activity\/current)\/query|common\/(alipaymini|wxmini)\?_ENCRYPT=) url script-response-body https://raw.githubusercontent.com/wf021325/qx/master/task/ampDache.js
+
+
+#微信小程序 卫岗天天订 获取请求头 Authorization 点击 我的
+//hostname = ttdprod-mp.4008618618.com
+//^https:\/\/ttdprod\-mp\.4008618618\.com\/mallbusiness\/ums\/common\/getMemberInfoNew$ url script-request-header WeiGangMilkExtractAuthorization.js
+
+
+#康佰家大药房 微信小程序 获取请求头 token 点击 我的
+//hostname = app.fjxzj.com
+//^https:\/\/app\.fjxzj\.com\/wxscrm\/api\/(member|auth)\.php\?api url script-request-header KangBaiJiaExtractToken.js
+
+
+#好人家美味生活馆 获取请求头 X-WX-Token 点击 我的
+#蒙牛母婴官方自营店 微信小程序 获取X-WX-Token 点击 我的
+//hostname = xapi.weimob.com
+//^https:\/\/xapi\.weimob\.com\/api3\/onecrm\/store\/myStore\/getUserAmt$ url script-request-header HaoRenJia_MengNiuMotherChildAppletExtractToken.js
+
+
+#德邦快递Applet 获取Cookie 点击 我的
+//hostname = www.deppon.com
+//^https:\/\/www\.deppon\.com\/ndcc\-gwapi\/userService\/eco\/user\/secure\/queryUserInfo$ url script-request-header DepponExtractCookie.js
+
+
+#东方烟草报App 获取Token
+//hostname = eapp.eastobacco.com
+^https:\/\/eapp\.eastobacco\.com\/index\.php\?m=api&c=user&a=userinfo$ url script-request-body EastobaccoExtractToken.js
+
+
+#移动云盘App
+#获取Authorization
+//hostname = group.yun.139.com
+//^https:\/\/group\.yun\.139\.com\/hcy\/ family\/adapter\/andAlbum\/openApi\/getUserInfo$ url script-response-body ChinaMobileExtractAuthorization.js
+#获取Token
+//hostname = aas.caiyun.feixin.10086.cn
+//^https:\/\/aas\.caiyun\.feixin\.10086\.cn:443\/tellin\/querySpecToken\.do$ url script-response-body ChinaMobileExtractToken.js
+
+
+#蜜雪冰城小程序 点击 我的
+//hostname = mxsa.mxbc.net
+//^https:\/\/mxsa\.mxbc\.net\/api\/v1\/customer\/info url script-response-body MxbcExtractToken.js
+
+
+#霸王茶姬Applet
+//hostname = webapi2.qmai.cn
+//^https:\/\/webapi2\.qmai\.cn\/web\/cmk\-center\/marketing url script-response-body ChageeExtractToken.js
+
+
+#顺丰速运 打开小程序或APP-我的-积分
+//hostname = mcs-mimp-web.sf-express.com
+#顺丰速运Applet
+//^https:\/\/mcs\-mimp\-web\.sf\-express\.com\/mcs\-mimp\/share\/weChat\/shareGiftReceiveRedirect url script-response-body SF-ExpressExtractURL.js
+#顺丰速运App
+//^https:\/\/mcs\-mimp\-web\.sf\-express\.com\/mcs\-mimp\/share\/app\/shareRedirect url script-response-body SF-ExpressExtractURL.js
+
+
+#京东网页版 登录后点击 我的
+//hostname = api.m.jd.com
+^https:\/\/api\.m\.jd\.com url script-response-body JingDongExtractCookie.js
+
+
+#海信爱家 依次点击 海信爱家（微信公众号） -> （右下角 位置）个人中心 -> （第一个 位置）会员中心 -> （中间偏左下 位置）玩转积分 Quantumult X会通知获取Cookie成功 点开通知 复制Cookie
+#账户积分Cookie
+//hostname = sweixin.hisense.com
+//^https:\/\/sweixin\.hisense\.com\/ecrp\/member\/initMember url script-request-header ExtractCookie.js
+#做任务Cookie
+//hostname = cps.hisense.com
+//^https:\/\/cps\.hisense\.com\/customerAth\/activity\-manage\/activityUser\/noLoginCheck$ url script-response-body ExtractCookie.js
