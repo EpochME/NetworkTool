@@ -1,5 +1,4 @@
 // ExtractURL.js
-
 // 提取 Cookie
 let URL = $request.url;
 
