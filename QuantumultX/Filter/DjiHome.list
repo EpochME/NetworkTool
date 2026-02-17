@@ -38,10 +38,10 @@ HOST, cmy d-10-90.getui.com, Dji Home Policy
 HOST, cmy d-10-95.getui.com, Dji Home Policy
 
 # Google Firebase（崩溃报告、安装统计、日志）- DJI 常用
-HOST-SUFFIX, googleapis.com, Dji Home Policy
-HOST, firebaselogging-pa.googleapis.com, Dji Home Policy
-HOST, firebaseinstallations.googleapis.com, Dji Home Policy
-HOST, firebase-settings.crashlytics.com, Dji Home Policy
+#HOST-SUFFIX, googleapis.com, Dji Home Policy
+#HOST, firebaselogging-pa.googleapis.com, Dji Home Policy
+#HOST, firebaseinstallations.googleapis.com, Dji Home Policy
+#HOST, firebase-settings.crashlytics.com, Dji Home Policy
 
 # 兜底（未命名域名频率很高，可能是 CDN 或其他 DJI 隐形域名）
 # 如果你想激进一点，可以把未命名也强制走这个策略，但建议先观察
