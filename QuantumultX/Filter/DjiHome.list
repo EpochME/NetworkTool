@@ -1,0 +1,49 @@
+# DJI Home App 专用分流 - 来自你的隐私报告
+# 优先精确匹配 + 后缀匹配，覆盖你截图中所有出现的域名
+
+# DJI 核心域名（频率最高）
+HOST-SUFFIX, djigate.com, Dji Home Policy
+HOST-SUFFIX, djijob.com, Dji Home Policy     # 虽然没出现，但同系列常见
+HOST, home-api.djigate.com, Dji Home Policy
+HOST, crobot-mqttt-hz.djigate.com, Dji Home Policy
+HOST, crobot-mqttt-us.djigate.com, Dji Home Policy   # 第二、三张图出现过
+
+# DJI 账号 & 服务域名
+HOST-SUFFIX, dji.com, Dji Home Policy
+HOST, account.dji.com, Dji Home Policy
+
+# DJI 服务 API（统计、接口等）
+HOST-SUFFIX, djiservice.org, Dji Home Policy
+HOST, api.djiservice.org, Dji Home Policy
+HOST, statistical-report.djiservice.org, Dji Home Policy
+
+# 个推（Getui）推送服务 - DJI Home 明显依赖它做推送
+HOST-SUFFIX, getui.com, Dji Home Policy
+HOST-SUFFIX, getui.net, Dji Home Policy
+HOST-SUFFIX, getu push.com, Dji Home Policy     # ge push 变体
+HOST, sdk.open.talk.getui.com, Dji Home Policy
+HOST, sdk.open.phone.getui.com, Dji Home Policy
+HOST, sdk.open.talk.getui.com, Dji Home Policy
+HOST, cm-10-186.getui.com, Dji Home Policy
+HOST, cmy d-10-97.getui.com, Dji Home Policy
+HOST, b-gtc.gepush.com, Dji Home Policy
+HOST, c-gtc.getui.net, Dji Home Policy
+HOST, c-hz g t2.getui.com, Dji Home Policy
+HOST, cm-10-172.getui.com, Dji Home Policy
+HOST, cmy d-10-129.getui.com, Dji Home Policy
+HOST, cmy d-10-88.getui.com, Dji Home Policy
+HOST, cmy d-10-90.getui.com, Dji Home Policy
+HOST, cmy d-10-95.getui.com, Dji Home Policy
+
+# Google Firebase（崩溃报告、安装统计、日志）- DJI 常用
+HOST-SUFFIX, googleapis.com, Dji Home Policy
+HOST, firebaselogging-pa.googleapis.com, Dji Home Policy
+HOST, firebaseinstallations.googleapis.com, Dji Home Policy
+HOST, firebase-settings.crashlytics.com, Dji Home Policy
+
+# 兜底（未命名域名频率很高，可能是 CDN 或其他 DJI 隐形域名）
+# 如果你想激进一点，可以把未命名也强制走这个策略，但建议先观察
+# IP-CIDR,你的手机本地IP段/32,DIRECT  （这个别加到这里）
+
+# 如果你使用远程分流订阅，可把以上规则保存为一个 .conf 片段
+# 或者直接复制到本地 [filter_local] 部分
