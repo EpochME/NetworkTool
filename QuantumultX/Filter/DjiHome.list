@@ -3,10 +3,11 @@
 
 # DJI 核心域名（频率最高）
 HOST-SUFFIX, djigate.com, Dji Home Policy
-HOST-SUFFIX, djijob.com, Dji Home Policy     # 虽然没出现，但同系列常见
+## 虽然没出现，但同系列常见
+HOST-SUFFIX, djijob.com, Dji Home Policy
 HOST, home-api.djigate.com, Dji Home Policy
 HOST, crobot-mqttt-hz.djigate.com, Dji Home Policy
-HOST, crobot-mqttt-us.djigate.com, Dji Home Policy   # 第二、三张图出现过
+HOST, crobot-mqttt-us.djigate.com, Dji Home Policy
 
 # DJI 账号 & 服务域名
 HOST-SUFFIX, dji.com, Dji Home Policy
@@ -20,7 +21,8 @@ HOST, statistical-report.djiservice.org, Dji Home Policy
 # 个推（Getui）推送服务 - DJI Home 明显依赖它做推送
 HOST-SUFFIX, getui.com, Dji Home Policy
 HOST-SUFFIX, getui.net, Dji Home Policy
-HOST-SUFFIX, getu push.com, Dji Home Policy     # ge push 变体
+## ge push 变体
+HOST-SUFFIX, getu push.com, Dji Home Policy     
 HOST, sdk.open.talk.getui.com, Dji Home Policy
 HOST, sdk.open.phone.getui.com, Dji Home Policy
 HOST, sdk.open.talk.getui.com, Dji Home Policy
