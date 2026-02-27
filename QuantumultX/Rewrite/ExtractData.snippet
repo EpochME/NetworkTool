@@ -1,6 +1,6 @@
 #获取相关数据成功后，取消本条重写的勾选（把✅变为☑️），从而避免产生不必要的mitm消耗手机性能。
 
-hostname = h5.smzdm.com, bhgrwhg.bhsggroup.cn, eapp.eastobacco.com, wx-camp-180-shuangjie-api.mscampapi.digitalyili.com ,msmarket.msx.digitalyili.com ,gw-app.beantechyun.com, api.yonghuivip.com, m.client.10010.com, res.woread.com.cn, 10010.woread.com.cn, next.gacmotor.com, *.amap.com, ttdprod-mp.4008618618.com, app.fjxzj.com, xapi.weimob.com, www.deppon.com, eapp.eastobacco.com, group.yun.139.com, aas.caiyun.feixin.10086.cn, mxsa.mxbc.net, webapi2.qmai.cn, mcs-mimp-web.sf-express.com, api.m.jd.com, cps.hisense.com, sweixin.hisense.com, passenger.t3go.cn
+hostname = h5.smzdm.com, bhgrwhg.bhsggroup.cn, eshop.eastobacco.com, eapp.eastobacco.com, eappimg.eastobacco.com, wx-camp-180-shuangjie-api.mscampapi.digitalyili.com ,msmarket.msx.digitalyili.com ,gw-app.beantechyun.com, api.yonghuivip.com, m.client.10010.com, res.woread.com.cn, 10010.woread.com.cn, next.gacmotor.com, *.amap.com, ttdprod-mp.4008618618.com, app.fjxzj.com, xapi.weimob.com, www.deppon.com, eapp.eastobacco.com, group.yun.139.com, aas.caiyun.feixin.10086.cn, mxsa.mxbc.net, webapi2.qmai.cn, mcs-mimp-web.sf-express.com, api.m.jd.com, cps.hisense.com, sweixin.hisense.com, passenger.t3go.cn
 
 
 ^https:\/\/h5\.smzdm\.com\/user\/safepass\/ajax_update_safepass url script-request-body https://raw.githubusercontent.com/EpochME/NetworkTool/refs/heads/main/QuantumultX/Script/SmzdmExtractData.js
@@ -10,7 +10,17 @@ hostname = h5.smzdm.com, bhgrwhg.bhsggroup.cn, eapp.eastobacco.com, wx-camp-180-
 ^https:\/\/bhgrwhg\.bhsggroup\.cn\/miniProgramClient\/myresp\/getUserInfoByToken url script-response-body https://raw.githubusercontent.com/EpochME/NetworkTool/refs/heads/main/QuantumultX/Script/BaoHeWorkers'CulturalCenterExtractData.js
 
 
+# 优先匹配用户信息接口（通常是 POST，有请求体 token）
 ^https:\/\/eapp\.eastobacco\.com\/index\.php\?m=api&c=user&a=userinfo url script-request-body https://raw.githubusercontent.com/EpochME/NetworkTool/refs/heads/main/QuantumultX/Script/EastobaccoExtractToken.js
+
+# 商品列表接口（Referer 带 token 的典型场景）
+^https:\/\/eshop\.eastobacco\.com\/index\.php url script-request https://raw.githubusercontent.com/EpochME/NetworkTool/refs/heads/main/QuantumultX/Script/EastobaccoExtractToken.js
+
+# 图片域名（Referer 也经常带 token）
+^https:\/\/eappimg\.eastobacco\.com\/ url script-request https://raw.githubusercontent.com/EpochME/NetworkTool/refs/heads/main/QuantumultX/Script/EastobaccoExtractToken.js
+
+# 更宽松的兜底规则（可选，防止漏掉）
+^https?:\/\/(eapp|eshop|eappimg)\.eastobacco\.com\/ url script-request-body https://raw.githubusercontent.com/EpochME/NetworkTool/refs/heads/main/QuantumultX/Script/EastobaccoExtractToken.js
 
 #T3出行App提取token
 ^https:\/\/passenger\.t3go\.cn\/member\-app\-api url script-request-header https://raw.githubusercontent.com/EpochME/NetworkTool/refs/heads/main/QuantumultX/Script/T3GoExtractToken.js
