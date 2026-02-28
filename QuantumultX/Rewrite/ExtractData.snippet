@@ -28,11 +28,11 @@ hostname = h5.smzdm.com, bhgrwhg.bhsggroup.cn, eshop.eastobacco.com, eapp.eastob
 ^https:\/\/passenger\.t3go\.cn\/mall\-app\-api url script-request-header https://raw.githubusercontent.com/EpochME/NetworkTool/refs/heads/main/QuantumultX/Script/T3GoExtractToken.js
 #活力伊利 小程序
 #openid
-^https:\/\/msmarket\.msx\.digitalyili\.com\/gateway\/api\/auth\/account url script-request-body HuoLiYiLiAppletExtractOpenId.js
+#^https:\/\/msmarket\.msx\.digitalyili\.com\/gateway\/api\/auth\/account url script-request-body HuoLiYiLiAppletExtractOpenId.js
 #点击中秋活动 获取请求头token
-^https:\/\/wx\-camp\-180\-shuangjie\-api\.mscampapi\.digitalyili\.com\/fragment\/ticket\/ticket\-info url script-request-header HuoLiYiLiAppletExtractToken.js
+#^https:\/\/wx\-camp\-180\-shuangjie\-api\.mscampapi\.digitalyili\.com\/fragment\/ticket\/ticket\-info url script-request-header HuoLiYiLiAppletExtractToken.js
 #点击 我的 获取请求头 access_token
-^https:\/\/msmarket\.msx\.digitalyili\.com\/gateway\/api\/member\/(level|sign|point) url script-request-header HuoLiYiLiAppletExtractAccessToken.js
+#^https:\/\/msmarket\.msx\.digitalyili\.com\/gateway\/api\/member\/(level|sign|point) url script-request-header HuoLiYiLiAppletExtractAccessToken.js
 
 
 
@@ -57,15 +57,15 @@ hostname = h5.smzdm.com, bhgrwhg.bhsggroup.cn, eshop.eastobacco.com, eapp.eastob
 //^https:\/\/api\.yonghuivip\.com\/api\/fp\/commonconfig url script-request-header YongHuiLifeAppExtractCookie.js
 
 ##联通App 获取token_online
-^https:\/\/m\.client\.10010\.com\/mobileService\/login_vcode_member url script-request-body ChinaUnicomExtractTokenOnline.js
+#^https:\/\/m\.client\.10010\.com\/mobileService\/login_vcode_member url script-request-body ChinaUnicomExtractTokenOnline.js
 #联通App 月光宝盒阅读页面 获取Cookie
 //hostname = res.woread.com.cn
-^http:\/\/res\.woread\.com\.cn\/active\/readGiftBoxActive url script-response-body ChinaUnicomWoReadExtractCookie.js
+#^http:\/\/res\.woread\.com\.cn\/active\/readGiftBoxActive url script-response-body ChinaUnicomWoReadExtractCookie.js
 #联通App月光宝盒 改库存
 //hostname = 10010.woread.com.cn
-^https:\/\/10010\.woread\.com\.cn\/ng_woread_service\/rest\/activity423\/queryActiveTaskList$ url script-response-body MoonBox.js
+#^https:\/\/10010\.woread\.com\.cn\/ng_woread_service\/rest\/activity423\/queryActiveTaskList$ url script-response-body MoonBox.js
 #联通App月光宝盒 改库存后获取请求体
-^https:\/\/10010\.woread\.com\.cn\/ng_woread_service\/rest\/activity423\/receiveActiveTask$ url script-request-body MoonBoxExtractRequestBody.js
+#^https:\/\/10010\.woread\.com\.cn\/ng_woread_service\/rest\/activity423\/receiveActiveTask$ url script-request-body MoonBoxExtractRequestBody.js
 
 
 #广汽传祺App 验证码登录过程中获取 Token
