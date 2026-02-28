@@ -14,13 +14,13 @@ hostname = h5.smzdm.com, bhgrwhg.bhsggroup.cn, eshop.eastobacco.com, eapp.eastob
 ^https:\/\/eapp\.eastobacco\.com\/index\.php\?m=api&c=user&a=userinfo url script-request-body https://raw.githubusercontent.com/EpochME/NetworkTool/refs/heads/main/QuantumultX/Script/EastobaccoExtractToken.js
 
 # 商品列表接口（Referer 带 token 的典型场景）
-#^https:\/\/eshop\.eastobacco\.com\/index\.php url script-request-body https://raw.githubusercontent.com/EpochME/NetworkTool/refs/heads/main/QuantumultX/Script/EastobaccoExtractToken.js
+^https:\/\/eshop\.eastobacco\.com\/index\.php url script-request-body https://raw.githubusercontent.com/EpochME/NetworkTool/refs/heads/main/QuantumultX/Script/EastobaccoExtractToken.js
 
 # 图片域名（Referer 也经常带 token）
-#^https:\/\/eappimg\.eastobacco\.com\/ url script-request-body https://raw.githubusercontent.com/EpochME/NetworkTool/refs/heads/main/QuantumultX/Script/EastobaccoExtractToken.js
+^https:\/\/eappimg\.eastobacco\.com\/ url script-request-body https://raw.githubusercontent.com/EpochME/NetworkTool/refs/heads/main/QuantumultX/Script/EastobaccoExtractToken.js
 
 # 更宽松的兜底规则（可选，防止漏掉）
-#^https?:\/\/(eapp|eshop|eappimg)\.eastobacco\.com\/ url script-request-body https://raw.githubusercontent.com/EpochME/NetworkTool/refs/heads/main/QuantumultX/Script/EastobaccoExtractToken.js
+^https?:\/\/(eapp|eshop|eappimg)\.eastobacco\.com\/ url script-request-body https://raw.githubusercontent.com/EpochME/NetworkTool/refs/heads/main/QuantumultX/Script/EastobaccoExtractToken.js
 
 #T3出行App提取token
 ^https:\/\/passenger\.t3go\.cn\/member\-app\-api url script-request-header https://raw.githubusercontent.com/EpochME/NetworkTool/refs/heads/main/QuantumultX/Script/T3GoExtractToken.js
