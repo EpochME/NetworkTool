@@ -1,3 +1,12 @@
+
+
+
+
+#青龙客户端App查看、编辑脚本的域名
+host, unpkg.com, direct
+#!name=农行防代理检测
+host, msmp.abchina.com.cn, reject
+
 # 彩云天气 禁用上传信息 - 来源: @苍井灰灰
 host, gather.colorfulclouds.net ,reject
 
