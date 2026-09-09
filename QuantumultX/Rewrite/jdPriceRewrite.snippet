@@ -1,0 +1,14 @@
+# 重写规则配置片段包含若干条重写规则，并可以包含若干作用于 MitM 的主机名及分流规则；可通过资源引用的方式使用。
+# 片段文件将保存在 Quantumult X 目录下的 Profiles 子目录中。
+# 样例可参见 https://raw.githubusercontent.com/crossutility/Quantumult-X/master/sample-import-rewrite.snippet
+ 
+#[rewrite_local]
+^https?:\/\/in\.m\.jd\.com\/product\/graphext\/\d+\.html url script-response-body https://raw.githubusercontent.com/wf021325/qx/master/js/jd_price.js
+^https?:\/\/apapia-sqk-weblogic\.manmanbuy\.com\/baoliao\/center\/menu$ url script-request-body https://raw.githubusercontent.com/wf021325/qx/master/js/jd_price.js
+
+# ^https?:\/\/in\.m\.jd\.com\/product\/graphext\/\d+\.html url script-response-body http://192.168.2.170:8080/jd_price.js
+# ^https?:\/\/apapia-sqk-weblogic\.manmanbuy\.com\/baoliao\/center\/menu$ url script-request-body http://192.168.2.170:8080/jd_price.js
+#[mitm]
+hostname = in.m.jd.com, apapia-sqk-weblogic.manmanbuy.com
+ 
+;^http://example.com/resource1/4/ url reject-dict
