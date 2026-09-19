@@ -10,9 +10,3 @@ host, msmp.abchina.com.cn, reject
 # 彩云天气 禁用上传信息 - 来源: @苍井灰灰
 host, gather.colorfulclouds.net ,reject
 
-host, gsp64-ssl.ls.apple.com, proxy
-
-# Cloudflare Workers
-host-suffix, workers.dev, proxy
-# Cloudflare Pages
-host-suffix, pages.dev, proxy
