@@ -1,7 +1,7 @@
 /**
  * ==============================================================================
  * 📌 脚本名称 (Script Name) : SecureCrypto (跨平台高安全加解密工具)
- * 📌 脚本版本 (Version)     : v5.5 (Quantumult X / 无 BigInt 强化优化版)
+ * 📌 脚本版本 (Version)     : v5.5.1 (Quantumult X / 安全加固版)
  * 📌 作者/贡献 (Author)     : Anonymous
  * 
  * ------------------------------------------------------------------------------
@@ -27,19 +27,19 @@
 
 const CONFIG = {
     mode: "encrypt",      // "encrypt" 或 "decrypt"
-    key: "AAA", 
+    key: "PLEASE_CHANGE_THIS_TO_A_STRONG_RANDOM_PASSWORD", 
     plaintext: "Hello, Quantumult X! 🚀🥑 v5.5", 
     ciphertext: "", 
     enableNotify: true,   // 是否开启通知
     logSensitive: false,  // 是否在日志打印明文
-    notifySensitive: true, // 是否允许通知显示完整明文
+    notifySensitive: false, // 是否允许通知显示完整明文
     pbkdf2Iterations: 100000 // PBKDF2-HMAC-SHA256 迭代次数
 };
 
 
 const SecureCrypto = (function () {
     // =========================================================================
-    // SecureCrypto v5.5
+    // SecureCrypto v5.5.1
     // - 统一使用 RFC 8439 ChaCha20-Poly1305，所有平台走同一协议
     // - 使用 CSPRNG；没有安全随机源时直接失败，禁止 Math.random()
     // - PBKDF2-HMAC-SHA256，迭代次数写入密文，便于未来升级
@@ -58,6 +58,9 @@ const SecureCrypto = (function () {
     const TAG_LEN = 16;
     const HEADER_LEN = 2 + 1 + 1 + 4 + SALT_LEN + NONCE_LEN + TAG_LEN;
     const DEFAULT_PBKDF2_ITERATIONS = 100000;
+    // 安全上限：防止攻击者伪造密文头部，将 PBKDF2 迭代次数设置到数十亿
+    // 从而诱导解密端发生严重 CPU DoS。旧版 100000 次密文仍完全兼容。
+    const MAX_PBKDF2_ITERATIONS = 1000000;
     const MAX_CIPHERTEXT_BYTES = 16 * 1024 * 1024;
 
     const SHA256_W = new Int32Array(64);
@@ -476,9 +479,16 @@ const SecureCrypto = (function () {
     }
 
     function makePayload(plaintext,password){
+        const plainSize = utf8ToBytes(plaintext);
+        if (HEADER_LEN + plainSize.length > MAX_CIPHERTEXT_BYTES) {
+            zeroize(plainSize);
+            throw new Error("明文过大：超过 16 MiB 安全处理上限");
+        }
+        zeroize(plainSize);
+
         const salt=getRandomBytes(SALT_LEN),nonce=getRandomBytes(NONCE_LEN);
         const iterations = Number(CONFIG.pbkdf2Iterations || DEFAULT_PBKDF2_ITERATIONS);
-        if (!Number.isInteger(iterations) || iterations < 1000 || iterations > 0xffffffff) throw new Error("CONFIG.pbkdf2Iterations 必须为 1000～4294967295 的整数");
+        if (!Number.isInteger(iterations) || iterations < 1000 || iterations > MAX_PBKDF2_ITERATIONS) throw new Error("CONFIG.pbkdf2Iterations 必须为 1000～1000000 的整数");
         let key=null,polyBlock=null,polyKey=null,plain=null,cipher=null,macData=null,tag=null;
         try{
             key=pbkdf2Sync(password,salt,iterations,32);
@@ -498,10 +508,10 @@ const SecureCrypto = (function () {
         const p=base64ToBytes(ciphertext);
         if(p.length > MAX_CIPHERTEXT_BYTES) throw new Error("密文超过安全处理上限（16 MiB）");
         if(p.length<HEADER_LEN)throw new Error("密文格式非法或已损坏");
-        if(p[0]!==MAGIC_S||p[1]!==MAGIC_C||p[2]!==VERSION)throw new Error("不支持的密文版本：仅支持 SecureCrypto v5.5 密文");
+        if(p[0]!==MAGIC_S||p[1]!==MAGIC_C||p[2]!==VERSION)throw new Error("不支持的密文版本：仅支持 SecureCrypto v5.5.1 密文");
         if(p[3]!==ALG_CHACHA20_POLY1305)throw new Error("不支持的加密算法标识");
         const dv=new DataView(p.buffer,p.byteOffset,p.byteLength),iterations=dv.getUint32(4,false);
-        if(iterations<1000)throw new Error("密文中的 PBKDF2 参数非法");
+        if(iterations<1000 || iterations>MAX_PBKDF2_ITERATIONS)throw new Error("密文中的 PBKDF2 参数非法或超过安全迭代上限");
         return {payload:p,iterations,salt:p.subarray(8,24),nonce:p.subarray(24,36),tag:p.subarray(36,52),cipher:p.subarray(52)};
     }
 
@@ -536,6 +546,24 @@ function sendNotification(title, subtitle, detail) {
     }
 }
 
+function assessPasswordStrength(password) {
+    const p = String(password || "");
+    if (p.length < 12) return { level: "weak", message: "密钥长度不足 12 个字符，重要数据不建议使用。" };
+    if (/^\d+$/.test(p) && p.length <= 12) return { level: "weak", message: "纯数字密钥熵较低，重要数据不建议使用。" };
+    if (/^(?:password|123456|12345678|qwerty|admin|letmein|welcome|iloveyou|abc123|111111)$/i.test(p)) {
+        return { level: "weak", message: "检测到常见弱密码，重要数据不建议使用。" };
+    }
+    const classes = [
+        /[a-z]/.test(p),
+        /[A-Z]/.test(p),
+        /\d/.test(p),
+        /[^A-Za-z0-9]/.test(p)
+    ].filter(Boolean).length;
+    if (p.length >= 16 && classes >= 3) return { level: "strong", message: "密钥强度较高。" };
+    if (p.length >= 12 && classes >= 3) return { level: "medium", message: "密钥可用，但重要长期数据建议使用更高熵的随机密钥。" };
+    return { level: "medium", message: "密钥不属于明显弱密码，但建议使用更长、更随机的密钥。" };
+}
+
 async function main() {
     const cleanKey = (CONFIG.key || "").trim();
     if (!cleanKey) {
@@ -545,6 +573,13 @@ async function main() {
     }
 
     try {
+        const strength = assessPasswordStrength(cleanKey);
+        if (strength.level === "weak") {
+            safeLog(`⚠️ 安全警告：${strength.message}`);
+        } else if (strength.level === "medium") {
+            safeLog(`ℹ️ 安全提示：${strength.message}`);
+        }
+
         if (CONFIG.mode === "encrypt") {
             if (!CONFIG.plaintext) {
                 throw new Error("请先在 CONFIG.plaintext 中配置待加密的明文数据");
@@ -586,4 +621,3 @@ async function main() {
     }
 }
 
-main();
