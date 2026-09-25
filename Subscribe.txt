@@ -1,34 +1,4 @@
-# 节点配置片段包含一些节点配置信息；可通过资源引用的方式使用。
-# 片段文件将保存在 Quantumult X 目录下的 Profiles 子目录中。
-# 样例可参见 https://raw.githubusercontent.com/crossutility/Quantumult-X/master/server-complete.snippet
- 
 anytls://9sK2mP8xQ7vL3nZ6@8uhb.pnuqcnp.cn:443?security=tls&sni=images.ctfassets.net&alpn=http%2F1.1&insecure=1&fp=chrome#%E9%A6%99%E6%B8%AF(HK)
-anytls://9sK2mP8xQ7vL3nZ6@awefd2313fefarg23fr24.pnuqcnp.cn:443?security=tls&sni=images.ctfassets.net&alpn=http%2F1.1&insecure=1&fp=chrome#%E7%BE%8E%E5%9B%BD(US)
-anytls://9sK2mP8xQ7vL3nZ6@6ivh.pnuqcnp.cn:443?security=tls&sni=images.ctfassets.net&alpn=http%2F1.1&insecure=1&fp=chrome#%E6%96%B0%E5%8A%A0%E5%9D%A1(SG)
-anytls://9sK2mP8xQ7vL3nZ6@6ivh.pnuqcnp.cn:443?security=tls&sni=images.ctfassets.net&alpn=http%2F1.1&insecure=1&fp=chrome#%E5%BE%B7%E5%9B%BD(DE)%20Repeat
-anytls://9sK2mP8xQ7vL3nZ6@6ivh.pnuqcnp.cn:443?security=tls&sni=images.ctfassets.net&alpn=http%2F1.1&insecure=1&fp=chrome#%E8%8B%B1%E5%9B%BD(GB)%20Repeat
-anytls://9sK2mP8xQ7vL3nZ6@6ivh.pnuqcnp.cn:443?security=tls&sni=images.ctfassets.net&alpn=http%2F1.1&insecure=1&fp=chrome#%E6%B3%95%E5%9B%BD(FR)%20Repeat
-anytls://9sK2mP8xQ7vL3nZ6@ac7548f3ebe045b39a90288ff1e97526.pnuqcnp.cn:443?security=tls&sni=ac7548f3ebe045b39a90288ff1e97526.lwdnxf.cn&alpn=http%2F1.1&insecure=1&fp=chrome#%E6%97%A5%E6%9C%AC(JP)
-anytls://9sK2mP8xQ7vL3nZ6@ac7548f3ebe045b39a90288ff1e97526.pnuqcnp.cn:443?security=tls&sni=ac7548f3ebe045b39a90288ff1e97526.lwdnxf.cn&alpn=http%2F1.1&insecure=1&fp=chrome#%E5%8A%A0%E6%8B%BF%E5%A4%A7(CA)%20Repeat
-anytls://9sK2mP8xQ7vL3nZ6@ac7548f3ebe045b39a90288ff1e97526.pnuqcnp.cn:443?security=tls&sni=ac7548f3ebe045b39a90288ff1e97526.lwdnxf.cn&alpn=http%2F1.1&insecure=1&fp=chrome#%E5%B7%B4%E8%A5%BF(BR)%20Repeat
-anytls://9sK2mP8xQ7vL3nZ6@ac7548f3ebe045b39a90288ff1e97526.pnuqcnp.cn:443?security=tls&sni=ac7548f3ebe045b39a90288ff1e97526.lwdnxf.cn&alpn=http%2F1.1&insecure=1&fp=chrome#%E9%9F%A9%E5%9B%BD(KR)%20Repeat
-anytls://9sK2mP8xQ7vL3nZ6@ac7548f3ebe045b39a90288ff1e97526.pnuqcnp.cn:443?security=tls&sni=ac7548f3ebe045b39a90288ff1e97526.lwdnxf.cn&alpn=http%2F1.1&insecure=1&fp=chrome#%E6%84%8F%E5%A4%A7%E5%88%A9(IT)%20Repeat
-anytls://9sK2mP8xQ7vL3nZ6@ac7548f3ebe045b39a90288ff1e97526.pnuqcnp.cn:443?security=tls&sni=ac7548f3ebe045b39a90288ff1e97526.lwdnxf.cn&alpn=http%2F1.1&insecure=1&fp=chrome#%E6%8C%AA%E5%A8%81(NO)%20Repeat
-anytls://9sK2mP8xQ7vL3nZ6@ac7548f3ebe045b39a90288ff1e97526.pnuqcnp.cn:443?security=tls&sni=ac7548f3ebe045b39a90288ff1e97526.lwdnxf.cn&alpn=http%2F1.1&insecure=1&fp=chrome#%E7%91%9E%E5%85%B8(SE)%20Repeat
-anytls://9sK2mP8xQ7vL3nZ6@ac7548f3ebe045b39a90288ff1e97526.pnuqcnp.cn:443?security=tls&sni=ac7548f3ebe045b39a90288ff1e97526.lwdnxf.cn&alpn=http%2F1.1&insecure=1&fp=chrome#%E6%BE%B3%E5%A4%A7%E5%88%A9%E4%BA%9A(AU)%20Repeat
-anytls://9sK2mP8xQ7vL3nZ6@6ivh.pnuqcnp.cn:443?security=tls&sni=images.ctfassets.net&alpn=http%2F1.1&insecure=1&fp=chrome#%E5%8D%B0%E5%BA%A6(IN)%20Repeat
-anytls://9sK2mP8xQ7vL3nZ6@6ivh.pnuqcnp.cn:443?security=tls&sni=images.ctfassets.net&alpn=http%2F1.1&insecure=1&fp=chrome#%E4%B9%8C%E5%85%8B%E5%85%B0(UA)%20Repeat
-anytls://9sK2mP8xQ7vL3nZ6@ac7548f3ebe045b39a90288ff1e97526.pnuqcnp.cn:443?security=tls&sni=ac7548f3ebe045b39a90288ff1e97526.lwdnxf.cn&alpn=http%2F1.1&insecure=1&fp=chrome#%E5%A2%A8%E8%A5%BF%E5%93%A5(MX)%20Repeat
-anytls://9sK2mP8xQ7vL3nZ6@6ivh.pnuqcnp.cn:443?security=tls&sni=images.ctfassets.net&alpn=http%2F1.1&insecure=1&fp=chrome#%E4%BF%84%E7%BD%97%E6%96%AF(RU)%20Repeat
-anytls://9sK2mP8xQ7vL3nZ6@6ivh.pnuqcnp.cn:443?security=tls&sni=images.ctfassets.net&alpn=http%2F1.1&insecure=1&fp=chrome#%E6%96%B0%E8%A5%BF%E5%85%B0(NZ)%20Repeat
-anytls://9sK2mP8xQ7vL3nZ6@6ivh.pnuqcnp.cn:443?security=tls&sni=images.ctfassets.net&alpn=http%2F1.1&insecure=1&fp=chrome#%E9%A9%AC%E6%9D%A5%E8%A5%BF%E4%BA%9A(MY)%20Repeat
-anytls://9sK2mP8xQ7vL3nZ6@6ivh.pnuqcnp.cn:443?security=tls&sni=images.ctfassets.net&alpn=http%2F1.1&insecure=1&fp=chrome#%E6%B3%B0%E5%9B%BD(TH)%20Repeat
-anytls://9sK2mP8xQ7vL3nZ6@6ivh.pnuqcnp.cn:443?security=tls&sni=images.ctfassets.net&alpn=http%2F1.1&insecure=1&fp=chrome#%E8%8F%B2%E5%BE%8B%E5%AE%BE(PH)%20Repeat
-anytls://9sK2mP8xQ7vL3nZ6@ac7548f3ebe045b39a90288ff1e97526.pnuqcnp.cn:443?security=tls&sni=ac7548f3ebe045b39a90288ff1e97526.lwdnxf.cn&alpn=http%2F1.1&insecure=1&fp=chrome#%E8%A5%BF%E7%8F%AD%E7%89%99(ES)%20Repeat
-anytls://9sK2mP8xQ7vL3nZ6@ac7548f3ebe045b39a90288ff1e97526.pnuqcnp.cn:443?security=tls&sni=ac7548f3ebe045b39a90288ff1e97526.lwdnxf.cn&alpn=http%2F1.1&insecure=1&fp=chrome#%E7%91%9E%E5%A3%AB(CH)%20Repeat
-anytls://9sK2mP8xQ7vL3nZ6@ac7548f3ebe045b39a90288ff1e97526.pnuqcnp.cn:443?security=tls&sni=ac7548f3ebe045b39a90288ff1e97526.lwdnxf.cn&alpn=http%2F1.1&insecure=1&fp=chrome#%E9%98%BF%E8%81%94%E9%85%8B(AE)%20Repeat
-anytls://9sK2mP8xQ7vL3nZ6@ac7548f3ebe045b39a90288ff1e97526.pnuqcnp.cn:443?security=tls&sni=ac7548f3ebe045b39a90288ff1e97526.lwdnxf.cn&alpn=http%2F1.1&insecure=1&fp=chrome#%E7%88%B1%E5%B0%94%E5%85%B0(IE)%20Repeat
-anytls://9sK2mP8xQ7vL3nZ6@ac7548f3ebe045b39a90288ff1e97526.pnuqcnp.cn:443?security=tls&sni=ac7548f3ebe045b39a90288ff1e97526.lwdnxf.cn&alpn=http%2F1.1&insecure=1&fp=chrome#%E5%8D%B0%E5%B0%BC(ID)%20Repeat
-anytls://9sK2mP8xQ7vL3nZ6@6ivh.pnuqcnp.cn:443?security=tls&sni=images.ctfassets.net&alpn=http%2F1.1&insecure=1&fp=chrome#%E4%B8%AD%E5%9B%BD%E5%8F%B0%E6%B9%BE(CN)%20Repeat
- 
-;shadowsocks=example.com:80, method=chacha20, password=pwd, obfs=http, obfs-host=bing.com, obfs-uri=/resource/file, fast-open=false, udp-relay=false, server_check_url=http://www.apple.com/generate_204, tag=ss-01
+anytls://9sK2mP8xQ7vL3nZ6@awefd2313fefarg23fr24.pnuqcnp.cn:443?security=tls&sni=images.ctfassets.net&alpn=http%2F1.1&insecure=1&fp=chrome#%E5%8F%B0%E6%B9%BE(TW)-1
+anytls://9sK2mP8xQ7vL3nZ6@6ivh.pnuqcnp.cn:443?security=tls&sni=images.ctfassets.net&alpn=http%2F1.1&insecure=1&fp=chrome#%E5%8F%B0%E6%B9%BE(TW)-2
+anytls://9sK2mP8xQ7vL3nZ6@ac7548f3ebe045b39a90288ff1e97526.pnuqcnp.cn:443?security=tls&sni=ac7548f3ebe045b39a90288ff1e97526.lwdnxf.cn&alpn=http%2F1.1&insecure=1&fp=chrome#%E5%8F%B0%E6%B9%BE(TW)-3
