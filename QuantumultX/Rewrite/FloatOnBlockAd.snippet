@@ -1,4 +1,4 @@
-[rewrite_local]
+# [rewrite_local]
 # 悬浮精灵 (FloatOn) 去开屏弹窗广告
 ^https?:\/\/cs\.kuso\.xyz\/configs url script-response-body https://raw.githubusercontent.com/EpochME/NetworkTool/refs/heads/main/QuantumultX/Script/FloatOn.js
 ^https?:\/\/cs\.kuso\.xyz\/application url reject-200
@@ -8,5 +8,5 @@
 ^https?:\/\/sf\d+-fe-tos\.pglstatp-toutiao\.com url reject-200
 ^https?:\/\/dm\.toutiao\.com\/get_domains url reject-200
 
-[mitm]
+# [mitm]
 hostname = cs.kuso.xyz, api-access.pangolin-sdk-toutiao.com, *.pglstatp-toutiao.com, dm.toutiao.com
