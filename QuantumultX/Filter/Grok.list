@@ -1,6 +1,6 @@
 #[filter_local]
 #My IP App
-host, ip-api.com, GrokAiPolicy
+#host, ip-api.com, GrokAiPolicy
 
 # Grok 核心服务：x.ai、grok.com 及其子域名，用于 API、认证、静态资源等
 host-suffix, x.ai, GrokAiPolicy
