@@ -1,6 +1,6 @@
 # Gemini（精细规则）
 #My IP App
-host, ip-api.com, Gemini
+#host, ip-api.com, Gemini
 
 HOST,app-analytics-services.com,Gemini
 HOST,robinfrontend-pa.googleapis.com,Gemini
