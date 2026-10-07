@@ -1,0 +1,434 @@
+# > Quantumult X Combined AI Ruleset
+
+# > 语法规范: 独立单行注释，每条规则及其注释单独成块并空行间隔
+
+# > 核验来源: 8 份本地及网络 AI 规则文件
+# > https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Claude/Claude.list
+
+# > https://raw.githubusercontent.com/EpochME/NetworkTool/refs/heads/main/QuantumultX/Filter/Gemini.list
+
+# > https://raw.githubusercontent.com/EpochME/NetworkTool/refs/heads/main/QuantumultX/Filter/Grok.list
+
+# > https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/OpenAI/OpenAI.list
+
+# > https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Copilot/Copilot.list
+
+# > https://raw.githubusercontent.com/Repcz/Tool/X/Surge/Rules/AI.list
+
+# > https://github.com/deezertidal/freevpn/blob/main/rule/ai.list
+
+# > https://raw.githubusercontent.com/ConnersHua/RuleGo/refs/heads/master/Surge/Ruleset/Extra/AI.list
+
+
+# > IP 位置查询【 My IP App 】
+host, ip-api.com, AI
+
+
+# > 规则顺序: 1. OpenAI -> 2. Gemini -> 3. Grok -> 4. Claude -> 5. Copilot
+
+# > 统一策略组名称: AI
+# =================================================================
+# 1. OpenAI (ChatGPT / Sora / OpenAI API / OpenRouter)
+# =================================================================
+
+# OpenAI 官方 Chat 短域名
+HOST-SUFFIX, chat.com, AI
+
+# ChatGPT Web 主站域名
+HOST-SUFFIX, chatgpt.com, AI
+
+# OpenAI 官网及 API 主域名
+HOST-SUFFIX, openai.com, AI
+
+# Sora 视频生成独立服务
+HOST-SUFFIX, sora.com, AI
+
+# OpenAI 重定向短域名
+HOST-SUFFIX, ai.com, AI
+
+# OpenRouter 聚合 API 服务
+HOST-SUFFIX, openrouter.ai, AI
+
+# ChatGPT 静态资源 CDN
+HOST-SUFFIX, oaistatic.com, AI
+
+# 用户上传文件/生成的图片/附件存储 CDN
+HOST-SUFFIX, oaiusercontent.com, AI
+
+# 图像优化及加载 CDN
+HOST, openaicom.imgix.net, AI
+
+# Cloudflare 节点加速
+HOST, chat.openai.com.cdn.cloudflare.net, AI
+
+# Azure Blob 存储资源
+HOST, openaicomproductionae4b.blob.core.windows.net, AI
+
+# Azure Edge CDN 资源
+HOST, production-openaicom-storage.azureedge.net, AI
+
+# Auth0 登录认证服务
+HOST-SUFFIX, auth0.com, AI
+
+# Arkose Labs (FunCAPTCHA 人机验证)
+HOST, openai-api.arkoselabs.com, AI
+
+# Arkose Labs 客户端验证接口
+HOST-SUFFIX, client-api.arkoselabs.com, AI
+
+# 证书与安全信任验证
+HOST-SUFFIX, identrust.com, AI
+
+# ChatGPT 实时语音交互服务器
+HOST-SUFFIX, chatgpt.livekit.cloud, AI
+
+# LiveKit 实时通信主机
+HOST-SUFFIX, host.livekit.cloud, AI
+
+# LiveKit WebRTC TURN 中继服务器
+HOST-SUFFIX, turn.livekit.cloud, AI
+
+# Datadog 前端性能与错误监控
+HOST, browser-intake-datadoghq.com, AI
+
+# Cloudflare 分析统计
+HOST, static.cloudflareinsights.com, AI
+
+# Statsig 功能灰度控制与 API
+HOST-SUFFIX, api.statsig.com, AI
+
+# Statsig 事件数据上报
+HOST-SUFFIX, events.statsigapi.net, AI
+
+# Statsig 功能开关
+HOST-SUFFIX, featuregates.org, AI
+
+# LaunchDarkly 灰度发布管理
+HOST-SUFFIX, launchdarkly.com, AI
+
+# 用户行为观察与日志
+HOST-SUFFIX, observeit.net, AI
+
+# Segment 数据分析平台
+HOST-SUFFIX, segment.io, AI
+
+# Sentry 错误日志收集
+HOST-SUFFIX, sentry.io, AI
+
+# Intercom 在线客服系统
+HOST-SUFFIX, intercom.io, AI
+
+# Intercom 客服静态资源
+HOST-SUFFIX, intercomcdn.com, AI
+
+# Algolia 站内搜索服务
+HOST-SUFFIX, algolia.net, AI
+
+# Stripe Plus/Team 订阅支付结算
+HOST-SUFFIX, stripe.com, AI
+
+# 匹配带 openai 的 API 域名
+HOST-KEYWORD, openai, AI
+
+# iOS/macOS ChatGPT 官方 App
+USER-AGENT, ChatGPT*, AI
+
+# OpenAI 客户端请求
+USER-AGENT, OpenAI*, AI
+
+# Azure Front Door API 节点
+HOST, openaicom-api-bdcpf8c6d2e9atf6.z01.azurefd.net, AI
+
+# Azure 托管 API 站点
+HOST-SUFFIX, openaiapi-site.azureedge.net, AI
+
+# OpenAI 官方节点 IP 范围
+IP-CIDR, 24.199.123.28/32, AI
+IP-CIDR, 64.23.132.171/32, AI
+
+# OpenAI 官方自治域 ASN
+IP-ASN, 20473, AI
+
+
+# =================================================================
+# 2. Gemini (Google AI / AI Studio / NotebookLM / DeepMind)
+# =================================================================
+
+# Gemini 网页端主站
+HOST-SUFFIX, gemini.google.com, AI
+
+# Bard 早期重定向域名
+HOST-SUFFIX, bard.google.com, AI
+
+# Google AI Studio 开发者平台
+HOST-SUFFIX, aistudio.google.com, AI
+
+# MakerSuite 开发者工作台
+HOST-SUFFIX, makersuite.google.com, AI
+
+# NotebookLM 顶级域
+HOST-SUFFIX, notebooklm.google, AI
+
+# NotebookLM 智能笔记
+HOST-SUFFIX, notebooklm.google.com, AI
+
+# NotebookLM 官方宣传及入口
+HOST-SUFFIX, notebooklm.withgoogle.com, AI
+
+# DeepMind 官网
+HOST-SUFFIX, deepmind.com, AI
+
+# DeepMind 品牌域名
+HOST-SUFFIX, deepmind.google, AI
+
+# Google Generative AI 官方入口
+HOST-SUFFIX, generativeai.google, AI
+
+# Google AI 开发者 API 门户
+HOST, ai.google.dev, AI
+
+# Gemini API / PaLM API 模型调用核心接口
+HOST, generativelanguage.googleapis.com, AI
+
+# AI Studio 后端通信接口
+HOST, alkalimakersuite-pa.googleapis.com, AI
+
+# Proactive Backend 智能推导服务
+HOST, proactivebackend-pa.googleapis.com, AI
+
+# 语音识别与合成 API
+HOST, speech-pa.googleapis.com, AI
+
+# Robin 前端服务接口
+HOST, robinfrontend-pa.googleapis.com, AI
+
+# 实时信令与推送服务
+HOST, signaler-pa.googleapis.com, AI
+
+# Google AI 核心客户端服务
+HOST, alkalicore-pa.clients6.google.com, AI
+
+# Google 账号登录验证
+HOST, accounts.google.com, AI
+
+# 账号权限与能力检测
+HOST, accountcapabilities-pa.googleapis.com, AI
+
+# Google API 基础 JS SDK
+HOST, apis.google.com, AI
+
+# 云端硬盘文件上传/交互
+HOST, drive-thirdparty.googleusercontent.com, AI
+
+# Google 字体静态资源
+HOST, fonts.gstatic.com, AI
+
+# Google 安全静态资源 CDN
+HOST, ssl.gstatic.com, AI
+
+# Google 帮助中心
+HOST, support.google.com, AI
+
+# 用户头像及图片存储 CDN
+HOST, lh3.google.com, AI
+
+# 用户生成的图片/媒体 CDN
+HOST, lh3.googleusercontent.com, AI
+
+# 应用分析服务
+HOST, app-analytics-services.com, AI
+
+# 广告/打点基础设施
+HOST, muf.app-ads-services.com, AI
+
+# 广告/打点基础设施
+HOST, odf.app-ads-services.com, AI
+
+# 广告/打点基础设施
+HOST, odm.app-ads-services.com, AI
+
+# 广告打点服务
+HOST, ogads-pa.clients6.google.com, AI
+
+# Google Play 接口服务
+HOST, play.google.com, AI
+
+# 实时支持服务
+HOST, realtimesupport.clients6.google.com, AI
+
+# Google 分析统计
+HOST, www.google-analytics.com, AI
+
+# Google 代码管理器
+HOST, www.googletagmanager.com, AI
+
+# Gemini 专属固定 IP
+IP-CIDR, 198.18.2.145/32, AI
+
+
+# =================================================================
+# 3. Grok (xAI)
+# =================================================================
+
+# Grok 独立 Web 门户
+HOST-SUFFIX, grok.com, AI
+
+# xAI 官网与核心 API 域名
+HOST-SUFFIX, x.ai, AI
+
+# Grok 用户身份认证
+HOST, auth.grokusercontent.com, AI
+
+# Cloudflare 统计分析
+HOST, static.cloudflareinsights.com, AI
+
+# Cloudflare 盾/人机验证
+HOST, challenges.cloudflare.com, AI
+
+# Sentry 错误日志收集
+HOST-SUFFIX, ingest.sentry.io, AI
+
+# Sentry 美国数据中心日志接口
+HOST-SUFFIX, ingest.us.sentry.io, AI
+
+# Intercom 移动端消息组件
+HOST-SUFFIX, mobile-messenger.intercom.com, AI
+
+# Mixpanel 用户行为分析
+HOST, api.mixpanel.com, AI
+
+# 功能资源 CDN
+HOST, featureassets.org, AI
+
+# 生产环境容器/资源注册表
+HOST, prodregistryv2.org, AI
+
+# 文本/图像辅助生成接口
+HOST, text.pollinations.ai, AI
+
+# Chronosphere 性能监控与链路追踪
+HOST, xai.chronosphere.io, AI
+
+
+# =================================================================
+# 4. Claude (Anthropic)
+# =================================================================
+
+# Claude Web 网页端主站
+HOST-SUFFIX, claude.ai, AI
+
+# Anthropic 官网及 API 门户
+HOST-SUFFIX, anthropic.com, AI
+
+# Claude 官方品牌/重定向域名
+HOST-SUFFIX, claude.com, AI
+
+# Claude 官方短网址服务
+HOST-SUFFIX, clau.de, AI
+
+# 用户生成内容/导出附件存储 CDN
+HOST-SUFFIX, claudeusercontent.com, AI
+
+# Claude MCP (模型上下文协议) 客户端接口
+HOST-SUFFIX, claudemcpclient.com, AI
+
+# Claude MCP 内容传输平台
+HOST-SUFFIX, claudemcpcontent.com, AI
+
+# Claude 专属 Auth0 登录认证接口
+HOST, anthropic.auth0.com, AI
+
+# Cloudflare 加速节点
+HOST, anthropic.com.cdn.cloudflare.net, AI
+
+# BunnyCDN 静态资源
+HOST, servd-anthropic-website.b-cdn.net, AI
+
+# Anthropic 官方技术博客托管
+HOST, anthropic-com.ghost.io, AI
+
+# Fathom Privacy Analytics 统计组件
+HOST, cdn.usefathom.com, AI
+
+# Claude iOS/macOS 官方 App
+USER-AGENT, Claude*, AI
+
+
+# =================================================================
+# 5. Copilot (Microsoft Copilot & GitHub Copilot)
+# =================================================================
+
+# Microsoft Copilot Web 主站
+HOST, copilot.microsoft.com, AI
+
+# Sydney (Copilot AI 对话核心后端)
+HOST, sydney.bing.com, AI
+
+# Bing 搜索 Portal (包含 Copilot 嵌入页)
+HOST, www.bing.com, AI
+
+# Bing 重定向服务
+HOST, r.bing.com, AI
+
+# Bing API 内部服务
+HOST, services.bingapis.com, AI
+
+# Bing Visual Search 图像理解网关
+HOST, gateway.bingviz.microsoft.net, AI
+
+# Bing Visual Search App 网关
+HOST, gateway.bingviz.microsoftapp.net, AI
+
+# Edge 浏览器内置 Copilot 服务
+HOST-SUFFIX, edgeservices.bing.com, AI
+
+# Bing Shopping / Copilot 导购组件
+HOST-SUFFIX, bing-shopping.microsoft-falcon.io, AI
+
+# GitHub Copilot 通用域名
+HOST-SUFFIX, githubcopilot.com, AI
+
+# GitHub Copilot API 接口
+HOST-SUFFIX, api.githubcopilot.com, AI
+
+# GitHub Copilot 模型与数据传输 CDN
+HOST-SUFFIX, copilot.githubusercontent.com, AI
+
+# GitHub Copilot 代理服务
+HOST, copilot-proxy.githubusercontent.com, AI
+
+# GitHub Copilot 代码补全遥测数据
+HOST, copilot-telemetry.githubusercontent.com, AI
+
+# MSN 新闻与 AI 资讯聚合接口
+HOST, api.msn.com, AI
+
+# Statsig 功能控制
+HOST, api.statsig.com, AI
+
+# MSN 静态资源
+HOST, assets.msn.com, AI
+
+# App Center 崩溃收集
+HOST, in.appcenter.ms, AI
+
+# 位置服务
+HOST, location.microsoft.com, AI
+
+# Microsoft 365 / Office Copilot 接入
+HOST, odc.officeapps.live.com, AI
+
+# 微软遥测数据事件中心
+HOST, self.events.data.microsoft.com, AI
+
+# 微软应用后端 API
+HOST-SUFFIX, api.microsoftapp.net, AI
+
+# Cloudflare 人机验证
+HOST-SUFFIX, challenges.cloudflare.com, AI
+
+# 微软托管的 OpenAI API 识别
+HOST-KEYWORD, openaicom-api, AI
+
+# Microsoft Corporation ASN
+IP-ASN, 14061, AI
