@@ -9,24 +9,24 @@
 # ==============================================================================
 # ========== 美国防直连占位节点 ==========
 shadowsocks=127.0.0.1:1, method=aes-128-gcm, password=dummy-password-never-works, udp-relay=false, tag=🇺🇸 US No-Direct 01
-shadowsocks=127.0.0.1:1, method=aes-128-gcm, password=dummy-password-never-works, udp-relay=false, tag=🇺🇸 US No-Direct 02
+;shadowsocks=127.0.0.1:1, method=aes-128-gcm, password=dummy-password-never-works, udp-relay=false, tag=🇺🇸 US No-Direct 02
 
 # ========== 日本防直连占位节点 ==========
 shadowsocks=127.0.0.1:1, method=aes-128-gcm, password=dummy-password-never-works, udp-relay=false, tag=🇯🇵 JP No-Direct 01
-shadowsocks=127.0.0.1:1, method=aes-128-gcm, password=dummy-password-never-works, udp-relay=false, tag=🇯🇵 JP No-Direct 02
+;shadowsocks=127.0.0.1:1, method=aes-128-gcm, password=dummy-password-never-works, udp-relay=false, tag=🇯🇵 JP No-Direct 02
 
 # ========== 新加坡防直连占位节点 ==========
 shadowsocks=127.0.0.1:1, method=aes-128-gcm, password=dummy-password-never-works, udp-relay=false, tag=🇸🇬 SG No-Direct 01
-shadowsocks=127.0.0.1:1, method=aes-128-gcm, password=dummy-password-never-works, udp-relay=false, tag=🇸🇬 SG No-Direct 02
+;shadowsocks=127.0.0.1:1, method=aes-128-gcm, password=dummy-password-never-works, udp-relay=false, tag=🇸🇬 SG No-Direct 02
 
 # ========== 韩国防直连占位节点 ==========
 shadowsocks=127.0.0.1:1, method=aes-128-gcm, password=dummy-password-never-works, udp-relay=false, tag=🇰🇷 KR No-Direct 01
-shadowsocks=127.0.0.1:1, method=aes-128-gcm, password=dummy-password-never-works, udp-relay=false, tag=🇰🇷 KR No-Direct 02
+;shadowsocks=127.0.0.1:1, method=aes-128-gcm, password=dummy-password-never-works, udp-relay=false, tag=🇰🇷 KR No-Direct 02
 
 # ========== 香港防直连占位节点 ==========
 shadowsocks=127.0.0.1:1, method=aes-128-gcm, password=dummy-password-never-works, udp-relay=false, tag=🇭🇰 HK No-Direct 01
-shadowsocks=127.0.0.1:1, method=aes-128-gcm, password=dummy-password-never-works, udp-relay=false, tag=🇭🇰 HK No-Direct 02
+;shadowsocks=127.0.0.1:1, method=aes-128-gcm, password=dummy-password-never-works, udp-relay=false, tag=🇭🇰 HK No-Direct 02
 
 # ========== 中国大陆防直连占位节点 ==========
 shadowsocks=127.0.0.1:1, method=aes-128-gcm, password=dummy-password-never-works, udp-relay=false, tag=🇨🇳 CN No-Direct 01
-shadowsocks=127.0.0.1:1, method=aes-128-gcm, password=dummy-password-never-works, udp-relay=false, tag=🇨🇳 CN No-Direct 02
+;shadowsocks=127.0.0.1:1, method=aes-128-gcm, password=dummy-password-never-works, udp-relay=false, tag=🇨🇳 CN No-Direct 02
