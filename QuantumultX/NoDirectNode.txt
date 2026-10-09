@@ -1,0 +1,32 @@
+
+# ==============================================================================
+# [防直连占位节点 (No-Direct)]
+# ------------------------------------------------------------------------------
+# 作用与设计初衷：
+# 1. 策略兜底与直连阻断：当特定地区的代理优选策略（如：美国节点优选）因筛选为空、订阅失效时，用于被该策略组命中，防止请求静默回退到 DIRECT（直连）。
+# 2. 保证策略一致性与安全：确保 AI 服务（Grok、OpenAI、Gemini、Claude 等）在没有指定地区可用代理时“宁可断连失败，绝不泄漏直连”，杜绝因意外直连导致的风险。
+# 3. 避免全局干扰：通过假 IP/假端口强制使 TCP 建立失败，实现安全的故障拦截，且完全不影响国内网站、局域网等正常直连规则。
+# ==============================================================================
+# ========== 美国防直连占位节点 ==========
+shadowsocks=127.0.0.1:1, method=aes-128-gcm, password=dummy-password-never-works, udp-relay=false, tag=🇺🇸 US No-Direct 01
+shadowsocks=127.0.0.1:1, method=aes-128-gcm, password=dummy-password-never-works, udp-relay=false, tag=🇺🇸 US No-Direct 02
+
+# ========== 日本防直连占位节点 ==========
+shadowsocks=127.0.0.1:1, method=aes-128-gcm, password=dummy-password-never-works, udp-relay=false, tag=🇯🇵 JP No-Direct 01
+shadowsocks=127.0.0.1:1, method=aes-128-gcm, password=dummy-password-never-works, udp-relay=false, tag=🇯🇵 JP No-Direct 02
+
+# ========== 新加坡防直连占位节点 ==========
+shadowsocks=127.0.0.1:1, method=aes-128-gcm, password=dummy-password-never-works, udp-relay=false, tag=🇸🇬 SG No-Direct 01
+shadowsocks=127.0.0.1:1, method=aes-128-gcm, password=dummy-password-never-works, udp-relay=false, tag=🇸🇬 SG No-Direct 02
+
+# ========== 韩国防直连占位节点 ==========
+shadowsocks=127.0.0.1:1, method=aes-128-gcm, password=dummy-password-never-works, udp-relay=false, tag=🇰🇷 KR No-Direct 01
+shadowsocks=127.0.0.1:1, method=aes-128-gcm, password=dummy-password-never-works, udp-relay=false, tag=🇰🇷 KR No-Direct 02
+
+# ========== 香港防直连占位节点 ==========
+shadowsocks=127.0.0.1:1, method=aes-128-gcm, password=dummy-password-never-works, udp-relay=false, tag=🇭🇰 HK No-Direct 01
+shadowsocks=127.0.0.1:1, method=aes-128-gcm, password=dummy-password-never-works, udp-relay=false, tag=🇭🇰 HK No-Direct 02
+
+# ========== 中国大陆防直连占位节点 ==========
+shadowsocks=127.0.0.1:1, method=aes-128-gcm, password=dummy-password-never-works, udp-relay=false, tag=🇨🇳 CN No-Direct 01
+shadowsocks=127.0.0.1:1, method=aes-128-gcm, password=dummy-password-never-works, udp-relay=false, tag=🇨🇳 CN No-Direct 02
